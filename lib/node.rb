@@ -8,13 +8,4 @@ class Node
     @value = value
     @next_node = nil
   end
-
-  def value
-    @value
-  end
-
-  # TODO: CREATE SOME SORT OF POINTER TO THE NEXT NODE. CAN'T DO THAT UNTIL THE NEXT NODE IS CREATED.
-  def next_node
-    @next_node
-  end
 end

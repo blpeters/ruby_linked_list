@@ -2,6 +2,7 @@
 
 require_relative 'node'
 
+# Creating a manual linked list in Ruby without built-in array methods/class.
 class LinkedList
   
   def initialize
@@ -58,7 +59,7 @@ class LinkedList
   def at(index)
     current_index = 0
     current_node = @head
-    if index >= self.size
+    if index >= size
       return "Index does not exist."
     else
       until current_index == index
@@ -86,24 +87,36 @@ class LinkedList
   end
 
   def contains?(value)
-
+    current_node = @head
+    for i in 0..(size - 1)
+      if value == current_node.value
+        return true
+      else
+        current_node = current_node.next_node
+      end
+    end
+    false
   end
 
   def find(value)
-
+    current_node = @head
+    for i in 0..(size - 1)
+      if value == current_node.value
+        return i
+      else
+        current_node = current_node.next_node
+      end
+    end
+    nil
   end
 
   def to_s
-
-  end
-
-  # EXTRA CREDIT
-
-  def insert_at(value, index)
-
-  end
-
-  def remove_at(index)
-
+    current_node = @head
+    print "(#{current_node.value})"
+    for i in 0..(size - 2)
+      current_node = current_node.next_node
+      print " -> (#{current_node.value})"
+    end
+    print " -> nil  "
   end
 end

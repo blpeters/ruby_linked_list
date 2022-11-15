@@ -44,11 +44,13 @@ class LinkedList
   end
 
   def head
+    return nil if !@head
     puts "The head of the list is #{@head.value}"
     @head.value
   end
 
   def tail
+    return nil if !@tail
     puts "The tail of the list is #{@tail.value}"
     @tail.value
   end
@@ -68,7 +70,19 @@ class LinkedList
   end
 
   def pop
-    
+    current_index = 0
+    current_node = @head
+    if size <= 1
+      @head = nil
+      @tail = nil 
+    else
+      until current_index == size - 2
+        current_node = current_node.next_node
+        current_index += 1
+      end
+      @tail = current_node
+      @tail.next_node = nil
+    end
   end
 
   def contains?(value)
